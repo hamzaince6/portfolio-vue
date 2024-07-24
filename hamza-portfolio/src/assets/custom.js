@@ -10,21 +10,31 @@ Last Update:  [20.07.2024]
 // GSAP animation for icons
 import { gsap } from 'gsap';
 
-// GSAP animation for "Stacks Section"
+// GSAP animation for Stacks Section
 export const animateIcons = () => {
     const icons = document.querySelectorAll('.stacks-icon div');
 
+    const iconColors = {
+        'fa-vuejs': '#41B883',   // VueJS green
+        'fa-figma': '#F24E1E',   // Figma red
+        'fa-react': '#61DAFB',   // React blue
+        'fa-x': '#FF61F6'        // Adobe XD pink
+    };
+
     gsap.from(icons, {
         opacity: 0,
-        y: 30,
+        y: -30, // Change this value to adjust the top-to-bottom animation
         scale: 0.8,
-        rotation: 360,
         duration: 1.5,
         stagger: 0.3,
         ease: 'back.out(1.7)',
         onStart: () => {
             icons.forEach(icon => {
-                gsap.set(icon, { filter: 'drop-shadow(0 0 10px rgba(255, 255, 255, 0.6))' });
+                const iconClass = icon.querySelector('i').classList[1];
+                const color = iconColors[iconClass] || 'rgba(255, 255, 255, 0.6)';
+                gsap.set(icon, {
+                    filter: `drop-shadow(0 0 10px ${color}) drop-shadow(0 0 5px ${color})`
+                });
             });
         },
         onComplete: () => {
@@ -47,20 +57,48 @@ export const animateIcons = () => {
 
     document.querySelectorAll('.stacks-icon div').forEach(icon => {
         icon.addEventListener('mouseenter', () => {
+            const iconClass = icon.querySelector('i').classList[1];
+            const color = iconColors[iconClass] || '#FFFFFF';  // default white if not found
+            gsap.to(icon.querySelector('i'), { color: color, duration: 0.4 });
             gsap.to(icon, { scale: 1.2, duration: 0.4 });
         });
         icon.addEventListener('mouseleave', () => {
+            gsap.to(icon.querySelector('i'), { color: '#FFFFFF', duration: 0.4 });
             gsap.to(icon, { scale: 1, duration: 0.4 });
         });
     });
 };
 
-// GSAP animation for "Project Section"
+// GSAP animation for Project Section
 export const animateProjects = () => {
     const projects = document.querySelectorAll('.project');
 
     projects.forEach((project) => {
         const numberElement = project.querySelector('.project-number h1');
+        const titleElement = project.querySelector('.project-title');
+
+        // Animate project and project title from top to bottom
+        gsap.fromTo(project,
+            { y: -30, opacity: 0 },
+            {
+                y: 0,
+                opacity: 1,
+                duration: 1.5,
+                ease: 'power1.out',
+                delay: 0.3
+            }
+        );
+
+        gsap.fromTo(titleElement,
+            { y: -30, opacity: 0 },
+            {
+                y: 0,
+                opacity: 1,
+                duration: 1.5,
+                ease: 'power1.out',
+                delay: 0.5
+            }
+        );
 
         // Ensure numberElement is not null and contains text
         if (numberElement && numberElement.textContent.trim()) {
@@ -80,28 +118,8 @@ export const animateProjects = () => {
                 }
             );
         }
-
-        // Add hover effects for project items
-        project.addEventListener('mouseover', () => {
-            gsap.to(project, {
-                scale: 1.05,
-                boxShadow: '0px 8px 15px rgba(0,0,0,0.3)',
-                duration: 0.3,
-                ease: 'power1.out'
-            });
-        });
-
-        project.addEventListener('mouseleave', () => {
-            gsap.to(project, {
-                scale: 1,
-                boxShadow: '0px 4px 8px rgba(0,0,0,0.2)',
-                duration: 0.3,
-                ease: 'power1.out'
-            });
-        });
     });
 };
-
 
 // GSAP animation for about card content
 export const animateAboutContent = () => {
@@ -161,11 +179,12 @@ export const animateAboutContent = () => {
     });
 };
 
-// GSAP animation for "Me Section"
+// GSAP animation for Me Section
 export const animateMeSection = () => {
     const meSection = document.querySelector('.me-section');
 
     if (meSection) {
+        // Başlık resmi animasyonu
         const headerImg = meSection.querySelector('.me-header img');
         if (headerImg) {
             gsap.from(headerImg, {
@@ -177,61 +196,87 @@ export const animateMeSection = () => {
             });
         }
 
+        // Başlık metinlerinin animasyonu
         const headerTexts = meSection.querySelectorAll('.me-header-text h2, .me-header-text h4');
         gsap.from(headerTexts, {
             opacity: 0,
-            y: 20,
+            y: -20,
             duration: 1,
             stagger: 0.3,
             ease: 'power1.out',
             delay: 0.5
         });
 
+        // Çevrimiçi işler kısmının animasyonu
         const onlineWorks = meSection.querySelector('.online-works');
         if (onlineWorks) {
             gsap.from(onlineWorks, {
                 opacity: 0,
-                scale: 0.9,
+                y: -20,
                 duration: 1,
                 ease: 'back.out(1.7)',
                 delay: 0.8
             });
         }
 
+        // Özgeçmiş linkinin animasyonu
         const resumeLink = meSection.querySelector('.resume');
         if (resumeLink) {
             gsap.from(resumeLink, {
                 opacity: 0,
-                x: -20,
+                y: -20,
                 duration: 1,
                 ease: 'power1.out',
                 delay: 1.1
             });
         }
 
+        // İçerik öğelerinin animasyonu
         const meContentItems = meSection.querySelectorAll('.me-content .item');
         gsap.from(meContentItems, {
             opacity: 0,
-            x: 20,
+            y: -20,
             duration: 1,
             stagger: 0.3,
             ease: 'power1.out',
             delay: 1.4
         });
 
+        // Footer bağlantılarının animasyonu
         const footerLinks = meSection.querySelectorAll('.me-footer .url-instagram, .me-footer .url-whatsapp');
         gsap.from(footerLinks, {
             opacity: 0,
-            scale: 0.9,
+            y: -20,
             duration: 1,
             stagger: 0.3,
             ease: 'back.out(1.7)',
             delay: 2
         });
+
+        // GitHub ve beceriler kısmının animasyonu
+        const githubSkills = meSection.querySelector('.me-github-skilss');
+        if (githubSkills) {
+            gsap.from(githubSkills, {
+                opacity: 0,
+                y: -30,
+                duration: 1,
+                ease: 'power2.out',
+                delay: 2.3
+            });
+        }
+
+        // Tüm bölümün yukarıdan aşağıya animasyonu
+        gsap.from(meSection, {
+            opacity: 0,
+            y: -50,
+            duration: 1,
+            ease: 'power2.out',
+            delay: 0
+        });
     }
 };
 
-// GSAP hover effects for "Me Section"
+// GSAP hover effects for Me Section
 export const hoverEffectsMeSection = () => {
     const meSection = document.querySelector('.me-section');
 
@@ -326,12 +371,21 @@ export const hoverEffectsMeSection = () => {
     }
 };
 
-// GSAP animation for "Follow Me Section"
+// GSAP animation for social media
 export const animateFollowMeSection = () => {
     const followMeSection = document.querySelector('.follow-me');
 
     if (followMeSection) {
-        // Animate title and subtitle
+        // Tüm bölümün yukarıdan aşağıya animasyonu
+        gsap.from(followMeSection, {
+            opacity: 0,
+            y: -50,
+            duration: 1,
+            ease: 'power2.out',
+            delay: 0
+        });
+
+        // Başlık ve alt başlığı animasyonla yukarıdan aşağıya
         const followMeTitle = followMeSection.querySelector('.follow-me-title h2');
         gsap.from(followMeTitle, {
             opacity: 0,
@@ -350,30 +404,45 @@ export const animateFollowMeSection = () => {
             delay: 0.5
         });
 
-        // Animate social items
-        const socialItems = followMeSection.querySelectorAll('.social-item');
+        // Sosyal medya öğelerini yukarıdan aşağıya dizme animasyonu
+        const socialItems = followMeSection.querySelectorAll('.socials .socaial-item');
         gsap.from(socialItems, {
             opacity: 0,
-            scale: 0.5,  // Başlangıçta daha küçük
-            duration: 1.2,
+            y: -30,
+            duration: 1,
             stagger: 0.3,
-            ease: 'elastic.out(1, 0.75)',
+            ease: 'power2.out',
             delay: 0.8
         });
 
-        // Animate social icons
-        const socialIcons = followMeSection.querySelectorAll('.social-item i');
-        gsap.to(socialIcons, {
-            y: -10,
-            repeat: -1,
-            yoyo: true,
-            ease: 'sine.inOut',
-            duration: 1.5,
-            delay: 1.5
-        });
+        // GitHub diller kısmının animasyonu
+        const githubLanguage = followMeSection.querySelector('.github-language');
+        if (githubLanguage) {
+            gsap.from(githubLanguage, {
+                opacity: 0,
+                y: -30,
+                duration: 1,
+                ease: 'power2.out',
+                delay: 1.2
+            });
+        }
 
-        // Hover effects for social items
-        socialItems.forEach(item => {
+        // Sosyal medya öğeleri için box-shadow ekleme ve hover efektleri
+        socialItems.forEach((item, index) => {
+            const icon = item.querySelector('i');
+            const boxShadowColor = getComputedStyle(icon).color;
+
+            // Box-shadow animasyonu
+            gsap.fromTo(item, {
+                boxShadow: `0 0 0 ${boxShadowColor}`
+            }, {
+                boxShadow: `0 0 10px ${boxShadowColor}`,
+                duration: 1.2,
+                ease: 'power2.out',
+                delay: 1.5 + index * 0.3
+            });
+
+            // Hover efektleri
             gsap.to(item, {
                 scale: 1.2,
                 duration: 0.4,
@@ -398,7 +467,8 @@ export const animateFollowMeSection = () => {
             });
         });
 
-        // Hover effects for social icons
+        // Sosyal medya ikonları için hover efektleri
+        const socialIcons = followMeSection.querySelectorAll('.social-item i');
         socialIcons.forEach(icon => {
             gsap.to(icon, {
                 rotation: 360,
@@ -426,7 +496,7 @@ export const animateFollowMeSection = () => {
     }
 };
 
-// GSAP animation for "Project Section"
+// GSAP animation for Project Section
 export const animateProjectSection = () => {
     const projectCard = document.querySelector('.project-card');
 
@@ -459,7 +529,7 @@ export const animateProjectSection = () => {
     }
 };
 
-// GSAP hover effects for "Project Section"
+// GSAP hover effects for Project Section
 export const hoverEffectsProjectSection = () => {
     const projectCard = document.querySelector('.project-card');
 
@@ -501,7 +571,7 @@ export const hoverEffectsProjectSection = () => {
     }
 };
 
-// GSAP animation for "Gallery Section"
+// GSAP animation for Gallery Section
 export const animateGallerySection = () => {
     const gallerySection = document.querySelector('.gallery');
 

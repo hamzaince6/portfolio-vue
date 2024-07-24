@@ -37,7 +37,6 @@ iframe {
 
 ::-webkit-scrollbar-thumb {
     background: #000;
-    border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -199,7 +198,7 @@ iframe {
 
 .about-card{
     display: flex;
-    padding: 20px;
+    padding: 19px;
     flex-direction: column;
     align-items: center;
     flex-shrink: 0;
@@ -207,7 +206,6 @@ iframe {
     border: 1px solid rgba(255, 255, 255, 0.06);
     background: #101010;
 }
-
 
 .about-card-content p{
     color: #757575;
@@ -503,13 +501,38 @@ iframe {
     color: #916CE7;
 }
 
+.me-github-skilss{
+    display: flex;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    padding: 8px;
+    align-items: flex-start;
+    align-content: flex-start;
+    gap: 10px;
+    align-self: stretch;
+    flex-wrap: wrap;
+    border-radius: 10px;
+    border: 0.8px solid rgba(255, 255, 255, 0.06);
+    background: #141414;
+}
+
+.github-hr{
+    color: green;
+    border: 2px;
+}
+
+.me-github-skilss img{
+    width: 100%;
+    height: 116px;
+}
+
 /*--------------------------------------------------------------*/
 /* Services Section */
 /*--------------------------------------------------------------*/
 
 .follow-me{
     display: flex;
-    padding: 20px 20px 30px 20px;
+    padding: 20px 20px 42px 20px;
     flex-direction: column;
     align-items: center;
     gap: 8px;
@@ -564,6 +587,11 @@ iframe {
     font-size: 18px;
     color: #916CE7;
     margin-right: 6px;
+}
+
+.github-language img{
+    width: 90%;
+    border-radius: 20px;
 }
 
 /*--------------------------------------------------------------*/
@@ -690,37 +718,37 @@ iframe {
 
 @media only screen and (min-width: 1600px) and (max-width: 1834px) {
     .follow-me {
-        margin-top: -19rem;
+        margin-top: -16rem;
     }
     .me-section {
-        margin-top: -19rem;
+        margin-top: -16rem;
     }
     .project-card {
-        margin-top: -12rem;
+        margin-top: -9rem;
     }
 }
 
 @media only screen and (min-width: 1506px) and (max-width: 1599px) {
     .follow-me {
-        margin-top: -19rem;
+        margin-top: -18rem;
     }
     .me-section {
-        margin-top: -19rem;
+        margin-top: -18rem;
     }
     .project-card {
-        margin-top: -12rem;
+        margin-top: -11rem;
     }
 }
 
 @media only screen and (min-width: 1440px) and (max-width: 1505px) {
     .follow-me {
-        margin-top: -23rem;
+        margin-top: -20rem;
     }
     .me-section {
-        margin-top: -23rem;
+        margin-top: -20rem;
     }
     .project-card {
-        margin-top: -16rem;
+        margin-top: -13rem;
     }
 }
 
@@ -767,18 +795,36 @@ iframe {
         font-weight: 500;
         line-height: normal;
     }
-
+    .online-works {
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+        padding: 8px;
+        gap: 8px;
+        border-radius: 40px;
+        border: 0.5px solid rgba(255, 255, 255, 0.05);
+        background: #141414;
+    }
+    .socaial-item a {
+        text-decoration: none;
+        color: #CCC;
+        padding: 13px;
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+    }
 }
 
 @media only screen and (min-width: 1200px) and (max-width: 1262px) {
     .follow-me {
-        margin-top: -27rem;
+        margin-top: -25rem;
     }
     .me-section {
-        margin-top: -27rem;
+        margin-top: -25rem;
     }
     .project-card {
-        margin-top: -12rem;
+        margin-top: -10rem;
     }
     .stacks-icon > div {
         flex: 1 1 calc(100% - 20px);
@@ -829,10 +875,10 @@ iframe {
 
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
     .follow-me {
-        margin-top: -31rem;
+        margin-top: -28rem;
     }
     .me-section {
-        margin-top: -31rem;
+        margin-top: -28rem;
     }
     .project-card {
         margin-top: -21rem;
@@ -919,6 +965,40 @@ iframe {
         border-radius: 10px;
         background: #1F1F1F;
     }
+    .stacks-icon > div {
+        flex: 1 1 calc(50% - 20px);
+        text-align: center;
+        padding: 4px;
+        box-sizing: border-box;
+    }
+    .stacks-icon > div {
+        flex: 1 1 calc(50% - 20px);
+        text-align: center;
+        padding: 4px;
+        font-size: 12px;
+        box-sizing: border-box;
+    }
+    .follow-me-title h2 {
+        color: #999;
+        margin: 0;
+        font-size: 10px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+    }
+    .resume a {
+        text-decoration: none;
+        color: #CCC;
+        font-size: 10px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+    }
+    .img-fluid {
+        max-width: 100%;
+        height: auto;
+        width: 35%;
+    }
 }
 
 @media only screen and (min-width: 769px) and (max-width: 991px) {
@@ -952,6 +1032,14 @@ iframe {
         border-radius: 20px;
         border: 0.5px solid rgba(255, 255, 255, 0.05);
         background: #141414;
+    }
+    .project-title h2 {
+        color: #CCC;
+        margin: 0;
+        font-size: 11px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
     }
 }
 
