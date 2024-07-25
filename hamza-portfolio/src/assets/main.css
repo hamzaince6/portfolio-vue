@@ -754,13 +754,13 @@ iframe {
 
 @media only screen and (min-width: 1263px) and (max-width: 1439px) {
     .follow-me {
-        margin-top: -23rem;
+        margin-top: -21rem;
     }
     .me-section {
-        margin-top: -23rem;
+        margin-top: -21rem;
     }
     .project-card {
-        margin-top: -16rem;
+        margin-top: -14rem;
     }
     .url-instagram, .url-whatsapp {
         display: flex;

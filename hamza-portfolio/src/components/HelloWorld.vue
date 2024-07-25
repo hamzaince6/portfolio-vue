@@ -150,16 +150,21 @@
         <div class="col-12 col-md-8 col-lg-4">
           <div class="me-section">
             <div class="me-header">
-              <img src="../assets/img/main.jpg" class="img-fluid" width="128" alt="">
+              <img src="../assets/img/main.webp" class="img-fluid" width="128" alt="hamza-ince-vesikalik-fotografi">
               <div class="me-header-text">
                 <div class="online-works">
                   <h2>
-                    <i class="fa-solid fa-circle-notch fa-spin" style="color: #63E6BE;"></i>
+                    <i class="fa-solid fa-circle-notch fa-spin" style="color: #63E6BE;" aria-label="aktif-çalışan"></i>
                     Aktif Çalışan
                   </h2>
                   <h6 class="resume">
-                    <a href="cv/muhammet-hamza-ince.pdf" download="Muhammet Hamza İnce Cv">Özgeçmişimi İndirin</a>
-                    <i class="fa-solid fa-file-arrow-down"></i>
+                    <a href="cv/muhammet-hamza-ince.pdf"
+                        download="muhammet-hamza-ince-cv.pdf"
+                        title="Muhammet Hamza İnce'nin özgeçmişini indirin"
+                        aria-label="Muhammet Hamza İnce'nin özgeçmişini indirin">
+                      Özgeçmişimi İndirin
+                      <i class="fa-solid fa-file-arrow-down" aria-hidden="true"></i>
+                    </a>
                   </h6>
                 </div>
                 <h2>Muhammet Hamza İnce</h2>
@@ -336,17 +341,31 @@
 </template>
 
 <script setup>
-import img1 from '../assets/img/1.jpg';
-import img2 from '../assets/img/2.jpg';
+import img1 from '../assets/img/1.webp';
+import img2 from '../assets/img/2.webp';
+import img3 from '../assets/img/3.webp';
+import img4 from '../assets/img/4.webp';
+import img5 from '../assets/img/5.webp';
+import img6 from '../assets/img/6.webp';
+import img7 from '../assets/img/7.webp';
+import img8 from '../assets/img/8.webp';
+import img9 from '../assets/img/9.webp';
+import img10 from '../assets/img/10.webp';
+import img11 from '../assets/img/11.webp';
 
 
 const images = [
   { src: img1 },
   { src: img2 },
-  { src: img1 },
-  { src: img2 },
-  { src: img1 },
-  { src: img2 },
+  { src: img3 },
+  { src: img4 },
+  { src: img5 },
+  { src: img6 },
+  { src: img7 },
+  { src: img8 },
+  { src: img9 },
+  { src: img10 },
+  { src: img11 },
 ];
 
 
