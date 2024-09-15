@@ -1,0 +1,17 @@
+
+User-agent: *
+Disallow: /private/
+Disallow: /admin/
+Disallow: /login/
+
+Allow: /
+
+# Sitemaps
+Sitemap: https://hamzaince.dev/sitemap.xml
+
+# Özel Yönlendirmeler
+User-agent: Googlebot
+Disallow: /test/
+
+User-agent: Bingbot
+Disallow: /tmp/

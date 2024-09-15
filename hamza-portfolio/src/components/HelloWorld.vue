@@ -100,46 +100,27 @@
               <div class="card-title">
                 <h1>
                   <i class="fas fa-list-check custom-icon"></i>
-                  Projelerim</h1>
+                  Projelerim
+                </h1>
               </div>
               <div class="card-subtitle">
                 <h2>Devam Edenler</h2>
               </div>
-              <div class="process">
-                <!--              <div class="process-url">-->
-                <!--                <p>-->
-                <!--                  <i class="fas fa-list-check custom-icon"></i>-->
-                <!--                  DRD Filo Oto Kiralama-->
-                <!--                </p>-->
-                <!--              </div>-->
-                <!--              <div class="process-url">-->
-                <!--                <p>-->
-                <!--                  <i class="fas fa-list-check custom-icon"></i>-->
-                <!--                  DRD Filo Oto Kiralama-->
-                <!--                </p>-->
-                <!--              </div>-->
-                <!--              <div class="process-url">-->
-                <!--                <p>-->
-                <!--                  <i class="fas fa-list-check custom-icon"></i>-->
-                <!--                  DRD Filo Oto Kiralama-->
-                <!--                </p>-->
-                <!--              </div>-->
-                <!--              <div class="process-url">-->
-                <!--                <p>-->
-                <!--                  <i class="fas fa-list-check custom-icon"></i>-->
-                <!--                  DRD Filo Oto Kiralama-->
-                <!--                </p>-->
-                <!--              </div>-->
-                <!--              <div class="process-url">-->
-                <!--                <p>-->
-                <!--                  <i class="fas fa-list-check custom-icon"></i>-->
-                <!--                  DRD Filo Oto Kiralama-->
-                <!--                </p>-->
-                <!--              </div>-->
-                <iframe src="https://drd-demo.netlify.app/" width="100%" style="border:none;">
-                  Tarayıcınız iframe öğelerini desteklemiyor.
-                </iframe>
-
+              <div id="project-slider" class="splide">
+                <div class="splide__track">
+                  <ul class="splide__list">
+                    <li class="splide__slide">
+                      <iframe src="https://drd-demo.netlify.app/" width="100%" style="border:none; height: 300px;">
+                        Tarayıcınız iframe öğelerini desteklemiyor.
+                      </iframe>
+                    </li>
+                    <li class="splide__slide">
+                      <iframe src="https://www.indigosolutions.com.tr/" width="100%" style="border:none; height: 300px;">
+                        Tarayıcınız iframe öğelerini desteklemiyor.
+                      </iframe>
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
@@ -212,14 +193,16 @@
             <div class="me-footer">
               <div class="url-instagram">
                 <p>
-                  <i class="fa-brands fa-instagram"></i>
-                  Takip et
+                  <a href="https://www.instagram.com/hamza.ince6/?hl=tr" target="_blank" rel="noopener noreferrer">
+                    <i class="fa-brands fa-instagram"></i> Takip et
+                  </a>
                 </p>
               </div>
               <div class="url-whatsapp">
                 <p>
-                  <i class="fa-solid fa-envelope"></i>
-                  E-posta gönder
+                  <a href="mailto:hamzaince001@gmail.com">
+                    <i class="fa-solid fa-envelope"></i> E-posta gönder
+                  </a>
                 </p>
               </div>
             </div>
@@ -340,7 +323,53 @@
     </b-container>
 </template>
 
+<!--              <div class="process-url">-->
+<!--                <p>-->
+<!--                  <i class="fas fa-list-check custom-icon"></i>-->
+<!--                  DRD Filo Oto Kiralama-->
+<!--                </p>-->
+<!--              </div>-->
+<!--              <div class="process-url">-->
+<!--                <p>-->
+<!--                  <i class="fas fa-list-check custom-icon"></i>-->
+<!--                  DRD Filo Oto Kiralama-->
+<!--                </p>-->
+<!--              </div>-->
+<!--              <div class="process-url">-->
+<!--                <p>-->
+<!--                  <i class="fas fa-list-check custom-icon"></i>-->
+<!--                  DRD Filo Oto Kiralama-->
+<!--                </p>-->
+<!--              </div>-->
+<!--              <div class="process-url">-->
+<!--                <p>-->
+<!--                  <i class="fas fa-list-check custom-icon"></i>-->
+<!--                  DRD Filo Oto Kiralama-->
+<!--                </p>-->
+<!--              </div>-->
+<!--              <div class="process-url">-->
+<!--                <p>-->
+<!--                  <i class="fas fa-list-check custom-icon"></i>-->
+<!--                  DRD Filo Oto Kiralama-->
+<!--                </p>-->
+<!--              </div>-->
+
 <script setup>
+
+import '@splidejs/splide/dist/css/splide.min.css';
+import Splide from '@splidejs/splide';
+
+// Splide Slider'ı Vue Bileşeninde Başlatma
+onMounted(() => {
+  new Splide('#project-slider', {
+    type       : 'loop',
+    pagination : true,
+    arrows     : true,
+    perPage    : 1,
+    gap        : '20px',
+  }).mount();
+});
+
 import img1 from '../assets/img/1.webp';
 import img2 from '../assets/img/2.webp';
 import img3 from '../assets/img/3.webp';
@@ -352,7 +381,6 @@ import img8 from '../assets/img/8.webp';
 import img9 from '../assets/img/9.webp';
 import img10 from '../assets/img/10.webp';
 import img11 from '../assets/img/11.webp';
-
 
 const images = [
   { src: img1 },
@@ -368,9 +396,9 @@ const images = [
   { src: img11 },
 ];
 
-
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import 'swiper/css';
+
 import { onMounted } from 'vue';
 import { animateIcons, animateProjects, animateAboutContent, animateMeSection, animateFollowMeSection, animateProjectSection, animateGallerySection,
   hoverEffectsMeSection, hoverEffectsProjectSection } from "../assets/custom";
