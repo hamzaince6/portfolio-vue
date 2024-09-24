@@ -18,6 +18,12 @@ Last Update:  [20.07.2024]
     color: #916CE7;
 }
 
+body{
+    width: 100%;
+    height: auto;
+    background: #050505;
+}
+
 iframe {
     border: none;
     width: 100%;
